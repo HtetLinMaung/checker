@@ -1,5 +1,7 @@
 import checkPassportOpenTime from "./handlers/check-passport-open-time";
 
 export const afterMasterProcessStart = async () => {
-  checkPassportOpenTime();
+  const passportInterval = setInterval(() => {
+    checkPassportOpenTime(passportInterval);
+  }, parseInt(process.env.passport_interval || "0") || 60 * 1000);
 };

@@ -2,11 +2,13 @@ import httpClient from "starless-http";
 
 export default async function checkPassportOpenTime(intervalId: any = null) {
   try {
+    console.log("Checking https://www.passport.gov.mm");
     const [res, err] = await httpClient.get("https://www.passport.gov.mm");
     if (err || !res || res.status != 200) {
       throw new Error("Something went wrong!");
     }
-    // console.log(res.data);
+    console.log(res.data);
+
     if (
       !res.data.includes(
         "ဝန်ဆောင်မှုပြန်လည်စတင်ဖွင့်လှစ်မည့်အချိန်ကို ကြေညာပေးသွားပါမည်"
@@ -23,6 +25,8 @@ export default async function checkPassportOpenTime(intervalId: any = null) {
       if (intervalId) {
         clearInterval(intervalId);
       }
+    } else {
+      console.log("Can't submit");
     }
   } catch (err) {
     console.error(err);
