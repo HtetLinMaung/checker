@@ -26,6 +26,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "moment": "^2.29.4",
     "starless-http": "^1.0.1"
   }
 }
