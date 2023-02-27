@@ -7,7 +7,7 @@ export default async function checkPassportOpenTime(intervalId: any = null) {
     if (err || !res || res.status != 200) {
       throw new Error("Something went wrong!");
     }
-    console.log(res.data);
+    // console.log(res.data);
 
     if (
       !res.data.includes(
